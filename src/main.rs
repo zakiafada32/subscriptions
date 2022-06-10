@@ -1,5 +1,5 @@
 use std::net::TcpListener;
-use subscription::run;
+use subscription::startup::run;
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
