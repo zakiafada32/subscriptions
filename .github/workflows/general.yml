@@ -30,7 +30,8 @@ jobs:
           - 5432:5432
     env:
       SQLX_VERSION: 0.5.13
-      SQLX_FEATURES: native-tls,postgres
+      SQLX_FEATURES_A: native-tls
+      SQLX_FEATURES_B: postgres
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -67,7 +68,7 @@ jobs:
             sqlx-cli
             --force
             --version=${{ env.SQLX_VERSION }}
-            --features=${{ env.SQLX_FEATURES }}
+            --features=${{ env.SQLX_FEATURES_A }},${{ env.SQLX_FEATURES_B }}
             --no-default-features
             --locked
 
@@ -110,7 +111,8 @@ jobs:
           - 5432:5432
     env:
       SQLX_VERSION: 0.5.13
-      SQLX_FEATURES: native-tls,postgres
+      SQLX_FEATURES_A: native-tls
+      SQLX_FEATURES_B: postgres
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -139,7 +141,7 @@ jobs:
             sqlx-cli
             --force
             --version=${{ env.SQLX_VERSION }}
-            --features=${{ env.SQLX_FEATURES }}
+            --features=${{ env.SQLX_FEATURES_A }},${{ env.SQLX_FEATURES_B }}
             --no-default-features
             --locked
 
@@ -168,7 +170,8 @@ jobs:
           - 5432:5432
     env:
       SQLX_VERSION: 0.5.13
-      SQLX_FEATURES: native-tls,postgres
+      SQLX_FEATURES_A: native-tls
+      SQLX_FEATURES_B: postgres
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -196,7 +199,7 @@ jobs:
             sqlx-cli
             --force
             --version=${{ env.SQLX_VERSION }}
-            --features=${{ env.SQLX_FEATURES }}
+            --features=${{ env.SQLX_FEATURES_A }},${{ env.SQLX_FEATURES_B }}
             --no-default-features
             --locked
 
