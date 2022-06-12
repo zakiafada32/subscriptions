@@ -75,7 +75,7 @@ async fn subscribe_returns_a_200_for_valid_form_data() {
         .await
         .expect("Failed to execute request");
 
-    assert_eq!(response.status(), reqwest::StatusCode::OK);
+    assert_eq!(response.status(), reqwest::StatusCode::CREATED);
 
     let saved = sqlx::query!("SELECT email, name FROM subscriptions")
         .fetch_one(&app.db_pool)
