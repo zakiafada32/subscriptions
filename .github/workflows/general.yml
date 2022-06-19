@@ -29,7 +29,7 @@ jobs:
         ports:
           - 5432:5432
     env:
-      SQLX_VERSION: 0.5.13
+      SQLX_VERSION: 0.6.0
       SQLX_FEATURES_A: native-tls
       SQLX_FEATURES_B: postgres
     steps:
@@ -77,6 +77,10 @@ jobs:
           sudo apt-get install libpq-dev -y
           SKIP_DOCKER=true ./scripts/init_db.sh
 
+      - name: Check sqlx-data.json is up-to-date
+        run: |
+          cargo sqlx prepare --check -- --bin zero2prod
+
       - name: Run cargo test
         uses: actions-rs/cargo@v1
         with:
@@ -110,7 +114,7 @@ jobs:
         ports:
           - 5432:5432
     env:
-      SQLX_VERSION: 0.5.13
+      SQLX_VERSION: 0.6.0
       SQLX_FEATURES_A: native-tls
       SQLX_FEATURES_B: postgres
     steps:
@@ -169,7 +173,7 @@ jobs:
         ports:
           - 5432:5432
     env:
-      SQLX_VERSION: 0.5.13
+      SQLX_VERSION: 0.6.0
       SQLX_FEATURES_A: native-tls
       SQLX_FEATURES_B: postgres
     steps:
